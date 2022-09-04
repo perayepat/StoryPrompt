@@ -14,26 +14,6 @@ class StoryPromptTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let storyPrompts1 = StoryPromptEntry()
-        let storyPrompts2 = StoryPromptEntry()
-        let storyPrompts3 = StoryPromptEntry()
-        
-        storyPrompts1.noun = "Toast"
-        storyPrompts1.adjective = "Smelly"
-        storyPrompts1.verb = "attacks"
-        storyPrompts1.number = 5
-        
-        storyPrompts2.noun = "Toast"
-        storyPrompts2.adjective = "Smelly"
-        storyPrompts2.verb = "attacks"
-        storyPrompts2.number = 5
-        
-        storyPrompts3.noun = "Toast"
-        storyPrompts3.adjective = "Smelly"
-        storyPrompts3.verb = "attacks"
-        storyPrompts3.number = 5
-        
-        storyPrompts = [storyPrompts1, storyPrompts2, storyPrompts3]
     }
 
     // MARK: - Table view data source
@@ -60,7 +40,7 @@ class StoryPromptTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //MARK: - Casting the sender and assigning it to the new view 
+        //MARK: - Casting the sender and assigning it to the new view
         if segue.identifier == "ShowStoryPrompt"{
             guard let storyPromptViewController = segue.destination as? StoryPromptViewController,
                   let storyPrompt = sender as? StoryPromptEntry else {
@@ -68,5 +48,19 @@ class StoryPromptTableViewController: UITableViewController {
             }
             storyPromptViewController.storyPrompt = storyPrompt
         }
+    }
+    @IBAction func saveStoryPrompt(unwindSegue: UIStoryboardSegue){
+        //doing things in reverse
+        guard let storyPromptVC = unwindSegue.source as?
+                StoryPromptViewController,
+              let storyPrompt = storyPromptVC.storyPrompt else {
+            return
+        }
+        storyPrompts.append(storyPrompt)
+        tableView.reloadData()
+    }
+    
+    @IBAction func cancelStoryPrompt(unwindSegue: UIStoryboardSegue){
+        
     }
 }

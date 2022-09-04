@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoryPromptCell" textLabel="Kmq-eJ-px1" imageView="CCQ-F0-ez6" style="IBUITableViewCellStyleDefault" id="MPP-UF-hDz">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StoryPromptCell" textLabel="Kmq-eJ-px1" imageView="zxV-3b-Oca" style="IBUITableViewCellStyleDefault" id="MPP-UF-hDz">
                                 <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MPP-UF-hDz" id="rLl-T8-U7P">
@@ -47,7 +47,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="books" id="CCQ-F0-ez6">
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="books" id="zxV-3b-Oca">
                                             <rect key="frame" x="20" y="0.0" width="44" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
@@ -60,7 +60,13 @@
                             <outlet property="delegate" destination="VQL-IN-e4H" id="BOx-Ey-2JQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Vtv-Qe-0Sh"/>
+                    <navigationItem key="navigationItem" id="Vtv-Qe-0Sh">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="pr6-n0-Ecy">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="cby-cp-63H"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="ryI-iO-ASe" kind="show" identifier="ShowStoryPrompt" id="7yQ-FP-7Ke"/>
                     </connections>
@@ -78,7 +84,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="3aE-11-6Ob">
-                                <rect key="frame" x="20" y="101" width="374" height="653.5"/>
+                                <rect key="frame" x="20" y="145" width="374" height="653.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="z6C-I1-wc0">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
@@ -240,6 +246,29 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="jGs-y9-9G6">
+                                <rect key="frame" x="120.5" y="831" width="173" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G03-9u-p4x">
+                                        <rect key="frame" x="0.0" y="0.0" width="73.5" height="31"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Discard"/>
+                                        <connections>
+                                            <action selector="cancelStoryPrompt:" destination="ryI-iO-ASe" eventType="touchUpInside" id="zJK-7d-9SE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WBn-Gh-ld9">
+                                        <rect key="frame" x="99.5" y="0.0" width="73.5" height="31"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                        <connections>
+                                            <segue destination="ZIT-ZK-tO7" kind="unwind" unwindAction="saveStoryPromptWithUnwindSegue:" id="N1I-C6-wue"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lQB-vd-iOe"/>
                         <color key="backgroundColor" red="0.89000000000000001" green="0.77029518490000004" blue="0.66517049260000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -248,15 +277,19 @@
                             <constraint firstItem="Vqi-B7-I1x" firstAttribute="centerY" secondItem="IJz-2U-xIL" secondAttribute="centerY" id="Uc8-nI-NRM"/>
                             <constraint firstItem="IJz-2U-xIL" firstAttribute="centerY" secondItem="JgH-SI-H05" secondAttribute="centerY" id="XuX-Ix-fup"/>
                             <constraint firstItem="IJz-2U-xIL" firstAttribute="centerX" secondItem="JgH-SI-H05" secondAttribute="centerX" id="hk8-Ju-Rhy"/>
+                            <constraint firstItem="jGs-y9-9G6" firstAttribute="bottom" secondItem="lQB-vd-iOe" secondAttribute="bottom" id="pmm-v5-beq"/>
                             <constraint firstItem="Vqi-B7-I1x" firstAttribute="centerX" secondItem="IJz-2U-xIL" secondAttribute="centerX" id="upK-f8-iEO"/>
+                            <constraint firstItem="jGs-y9-9G6" firstAttribute="centerX" secondItem="JgH-SI-H05" secondAttribute="centerX" id="vtu-20-Hc1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cXo-no-aED"/>
                     <connections>
                         <outlet property="storyPromptTextView" destination="Vqi-B7-I1x" id="8lY-Hg-dnh"/>
+                        <segue destination="ZIT-ZK-tO7" kind="unwind" identifier="CancelStoryPrompt" unwindAction="cancelStoryPromptWithUnwindSegue:" id="ZRX-Oc-cnr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E5Z-z4-toN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="ZIT-ZK-tO7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="790" y="116"/>
         </scene>
