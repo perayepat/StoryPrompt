@@ -82,6 +82,7 @@ class AddStoryPromptViewController: UIViewController {
         if segue.identifier == "StoryPrompt"{
             guard let storyPromptVC = segue.destination as? StoryPromptViewController else {return}
             storyPromptVC.storyPrompt = storyPrompt
+            storyPromptVC.isNewStoryPrompt = true
         }
     }
 }
