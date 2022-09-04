@@ -26,6 +26,16 @@ class AddStoryPromptViewController: UIViewController {
         //Create a gesture recognizer
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(changeImage))
         storyPromptImageView.addGestureRecognizer(gestureRecognizer)
+        
+        //MARK: - Notification Center
+        // this is called when the keybarid is hidden and your about to generate a new story prompt
+        NotificationCenter.default.addObserver(self, selector: #selector(updateStoryPrompt), name: UIResponder.keyboardDidHideNotification, object: nil)
+    }
+    
+    
+    deinit{
+    //MARK: - Clean up after notification
+        NotificationCenter.default.removeObserver(self)
     }
     
     @IBAction func changeNumber(_ sender: UISlider) {
@@ -42,7 +52,7 @@ class AddStoryPromptViewController: UIViewController {
         }
     }
     @IBAction func generateStoryPrompt(_ sender: UIButton) {
-        updateStoryPrompt()
+//        updateStoryPrompt()
         
         if storyPrompt.isValid(){
             performSegue(withIdentifier: "StoryPrompt", sender: nil)
@@ -61,7 +71,7 @@ class AddStoryPromptViewController: UIViewController {
         }
     }
     
-    func updateStoryPrompt(){
+    @objc func updateStoryPrompt(){
         storyPrompt.noun = nounTextField.text ?? ""
         storyPrompt.adjective = adjectiveTextField.text ?? ""
         storyPrompt.verb = verbTextField.text ?? ""
@@ -90,7 +100,7 @@ class AddStoryPromptViewController: UIViewController {
 extension AddStoryPromptViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        updateStoryPrompt()
+//        updateStoryPrompt()
         return true
     }
 }

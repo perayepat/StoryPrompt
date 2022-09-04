@@ -13,7 +13,10 @@ class StoryPromptTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        NotificationCenter.default.addObserver(self, selector: #selector(updateStoryPromptList(notification:)), name: .StoryPromptSaved, object: nil)
+    }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     // MARK: - Table view data source
@@ -51,16 +54,24 @@ class StoryPromptTableViewController: UITableViewController {
     }
     @IBAction func saveStoryPrompt(unwindSegue: UIStoryboardSegue){
         //doing things in reverse
-        guard let storyPromptVC = unwindSegue.source as?
-                StoryPromptViewController,
-              let storyPrompt = storyPromptVC.storyPrompt else {
-            return
-        }
-        storyPrompts.append(storyPrompt)
-        tableView.reloadData()
+//        guard let storyPromptVC = unwindSegue.source as?
+//                StoryPromptViewController,
+//              let storyPrompt = storyPromptVC.storyPrompt else {
+//            return
+//        }
+//        storyPrompts.append(storyPrompt)
+//        tableView.reloadData()
     }
     
     @IBAction func cancelStoryPrompt(unwindSegue: UIStoryboardSegue){
         
+    }
+    
+    @objc func updateStoryPromptList(notification: Notification){
+        guard let storyPrompt = notification.object as? StoryPromptEntry else{
+            return
+        }
+        storyPrompts.append(storyPrompt)
+        tableView.reloadData()
     }
 }
