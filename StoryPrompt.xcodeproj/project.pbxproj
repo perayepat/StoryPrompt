@@ -16,6 +16,7 @@
 		43FCCE5928C5077700431718 /* StoryPrompts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCCE5728C5077700431718 /* StoryPrompts.swift */; };
 		43FCCE5A28C5077700431718 /* StoryPromptEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCCE5828C5077700431718 /* StoryPromptEntry.swift */; };
 		43FCCE5C28C535B600431718 /* StoryPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCCE5B28C535B600431718 /* StoryPromptViewController.swift */; };
+		43FCCE5F28C53E8C00431718 /* StoryPromptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCCE5E28C53E8C00431718 /* StoryPromptTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		43FCCE5728C5077700431718 /* StoryPrompts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryPrompts.swift; sourceTree = "<group>"; };
 		43FCCE5828C5077700431718 /* StoryPromptEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryPromptEntry.swift; sourceTree = "<group>"; };
 		43FCCE5B28C535B600431718 /* StoryPromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPromptViewController.swift; sourceTree = "<group>"; };
+		43FCCE5E28C53E8C00431718 /* StoryPromptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPromptTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		43FCCE5D28C535C200431718 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				43FCCE5E28C53E8C00431718 /* StoryPromptTableViewController.swift */,
 				43FCCE4628C504C100431718 /* AddStoryPromptViewController.swift */,
 				43FCCE5B28C535B600431718 /* StoryPromptViewController.swift */,
 			);
@@ -163,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43FCCE5F28C53E8C00431718 /* StoryPromptTableViewController.swift in Sources */,
 				43FCCE5C28C535B600431718 /* StoryPromptViewController.swift in Sources */,
 				43FCCE5A28C5077700431718 /* StoryPromptEntry.swift in Sources */,
 				43FCCE4728C504C100431718 /* AddStoryPromptViewController.swift in Sources */,
