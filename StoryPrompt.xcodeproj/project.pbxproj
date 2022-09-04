@@ -9,25 +9,27 @@
 /* Begin PBXBuildFile section */
 		43FCCE4328C504C100431718 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCCE4228C504C100431718 /* AppDelegate.swift */; };
 		43FCCE4528C504C100431718 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCCE4428C504C100431718 /* SceneDelegate.swift */; };
-		43FCCE4728C504C100431718 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCCE4628C504C100431718 /* ViewController.swift */; };
+		43FCCE4728C504C100431718 /* AddStoryPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCCE4628C504C100431718 /* AddStoryPromptViewController.swift */; };
 		43FCCE4A28C504C100431718 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43FCCE4828C504C100431718 /* Main.storyboard */; };
 		43FCCE4C28C504C300431718 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43FCCE4B28C504C300431718 /* Assets.xcassets */; };
 		43FCCE4F28C504C300431718 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43FCCE4D28C504C300431718 /* LaunchScreen.storyboard */; };
 		43FCCE5928C5077700431718 /* StoryPrompts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCCE5728C5077700431718 /* StoryPrompts.swift */; };
 		43FCCE5A28C5077700431718 /* StoryPromptEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCCE5828C5077700431718 /* StoryPromptEntry.swift */; };
+		43FCCE5C28C535B600431718 /* StoryPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FCCE5B28C535B600431718 /* StoryPromptViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		43FCCE3F28C504C100431718 /* StoryPrompt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoryPrompt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43FCCE4228C504C100431718 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		43FCCE4428C504C100431718 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		43FCCE4628C504C100431718 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		43FCCE4628C504C100431718 /* AddStoryPromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoryPromptViewController.swift; sourceTree = "<group>"; };
 		43FCCE4928C504C100431718 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		43FCCE4B28C504C300431718 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43FCCE4E28C504C300431718 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43FCCE5028C504C300431718 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43FCCE5728C5077700431718 /* StoryPrompts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryPrompts.swift; sourceTree = "<group>"; };
 		43FCCE5828C5077700431718 /* StoryPromptEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryPromptEntry.swift; sourceTree = "<group>"; };
+		43FCCE5B28C535B600431718 /* StoryPromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPromptViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +62,10 @@
 		43FCCE4128C504C100431718 /* StoryPrompt */ = {
 			isa = PBXGroup;
 			children = (
+				43FCCE5D28C535C200431718 /* View Controllers */,
 				43FCCE5628C5070000431718 /* Model */,
 				43FCCE4228C504C100431718 /* AppDelegate.swift */,
 				43FCCE4428C504C100431718 /* SceneDelegate.swift */,
-				43FCCE4628C504C100431718 /* ViewController.swift */,
 				43FCCE4828C504C100431718 /* Main.storyboard */,
 				43FCCE4B28C504C300431718 /* Assets.xcassets */,
 				43FCCE4D28C504C300431718 /* LaunchScreen.storyboard */,
@@ -79,6 +81,15 @@
 				43FCCE5728C5077700431718 /* StoryPrompts.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		43FCCE5D28C535C200431718 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				43FCCE4628C504C100431718 /* AddStoryPromptViewController.swift */,
+				43FCCE5B28C535B600431718 /* StoryPromptViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,8 +163,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43FCCE5C28C535B600431718 /* StoryPromptViewController.swift in Sources */,
 				43FCCE5A28C5077700431718 /* StoryPromptEntry.swift in Sources */,
-				43FCCE4728C504C100431718 /* ViewController.swift in Sources */,
+				43FCCE4728C504C100431718 /* AddStoryPromptViewController.swift in Sources */,
 				43FCCE4328C504C100431718 /* AppDelegate.swift in Sources */,
 				43FCCE4528C504C100431718 /* SceneDelegate.swift in Sources */,
 				43FCCE5928C5077700431718 /* StoryPrompts.swift in Sources */,
