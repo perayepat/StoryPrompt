@@ -41,12 +41,11 @@ class AddStoryPromptViewController: UIViewController {
             storyPrompt.genre = .scifi
         }
     }
-    
     @IBAction func generateStoryPrompt(_ sender: UIButton) {
         updateStoryPrompt()
         
         if storyPrompt.isValid(){
-            print(storyPrompt)
+            performSegue(withIdentifier: "StoryPrompt", sender: nil)
         }else{
             //event to show the user
             let alert = UIAlertController(
@@ -79,6 +78,12 @@ class AddStoryPromptViewController: UIViewController {
         present(controller, animated: true)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "StoryPrompt"{
+            guard let storyPromptVC = segue.destination as? StoryPromptViewController else {return}
+            storyPromptVC.storyPrompt = storyPrompt
+        }
+    }
 }
 
 extension AddStoryPromptViewController: UITextFieldDelegate{
